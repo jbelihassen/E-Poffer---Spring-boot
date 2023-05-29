@@ -1,0 +1,84 @@
+<header id="header" class=" container header d-flex align-items-center fixed-top">
+  <div class="container-fluid d-flex align-items-center justify-content-between">
+
+    <a href="index.html" class="logo d-flex align-items-center  me-auto me-lg-0">
+      <!-- Uncomment the line below if you also wish to use an image logo -->
+      <!-- <img src="assets/img/logo.png" alt=""> -->
+      <img src="assets/img/testimonials/logo.jpg" class="log" alt="">
+      <h3  style="color: #7F81FC;">Poffer</h3>
+
+    </a>
+
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li><a href="/dashboard">Home</a></li>
+        <li>
+          <a [routerLink]="['/users']">Users List</a>
+        </li>
+        <li>
+
+          <a [routerLink]="['/projects']">Offers List</a>
+
+        </li>
+
+        <li><a href="/">Logout</a></li>
+      </ul>
+
+
+
+
+    </nav><!-- .navbar -->
+    </div>
+    
+    <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+    <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+  
+    </header>
+    <main id="main" data-aos="fade" data-aos-delay="1500">
+
+
+      <div class="page-header d-flex align-items-center">
+        <div class="container position-relative">
+          <div class="row d-flex justify-content-center">
+            <div class="col-lg-6 text-center">
+              <h2 >Poffer</h2>
+
+
+            </div>
+          </div>
+        </div>
+      </div><!-- End Page Header -->
+
+
+
+
+
+
+
+      <!-- ======= Pricing Section ======= -->
+      <section id="pricing" class="pricing">
+        <div class="container">
+
+          <div class="section-header">
+            <h2>Offers List</h2>
+          </div>
+
+          <div class="row gy-4 gx-lg-5 justify-content-center">
+
+            <div class="col-lg-10" *ngFor="let project of projects">
+              <div class="pricing-item d-flex justify-content-between">
+                <h3>{{ project.title }}</h3>
+                <p class="m-1">Price {{ project.oPrice }} DT</p>
+                <div class="d-flex justify-content-around">
+                  <button (click)="showImages(project)" class="btn btn-info" style="margin-left: 10px; color:white;"
+                    data-toggle="modal" data-target="#exampleModal">Show images</button>
+                  <button (click)="deleteProject(project.id)" class="btn btn-danger"
+                    style="margin-left: 10px">Delete</button>
+                </div>
+              </div>
+            </div><!-- End Pricing Item -->
+
+
+            <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
+                class="bi bi-arrow-up-short"></i></a>

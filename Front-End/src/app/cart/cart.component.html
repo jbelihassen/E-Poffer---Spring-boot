@@ -1,0 +1,93 @@
+<!-- ======= Header ======= -->
+<header id="header" class="header d-flex align-items-center fixed-top">
+  <div class="container-fluid d-flex align-items-center justify-content-between">
+
+    <a href="index.html" class="logo d-flex align-items-center  me-auto me-lg-0">
+      <!-- Uncomment the line below if you also wish to use an image logo -->
+      <!-- <img src="assets/img/logo.png" alt=""> -->
+      <img src="assets/img/testimonials/logo.jpg" class="log" alt="">
+      <h3  style="color: #7F81FC;">Poffer</h3>
+
+    </a>
+
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li><a href="/dashboard">Home</a></li>
+        <li><a [routerLink]="['/cart', userloggedIn?.id]">Cart</a></li>
+        <li class="dropdown"><a href="#"><span>My Profile</span> <i
+              class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <ul>
+            <li><a [routerLink]="['/profile', userloggedIn?.id]">My Account</a></li>
+            <li><a href="/">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav><!-- .navbar -->
+
+    <div class="header-social-links">
+      <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+      <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+      <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+      <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+    </div>
+    <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+    <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+  </div>
+</header><!-- End Header -->
+
+<main id="main" data-aos="fade" data-aos-delay="1500">
+
+  <!-- ======= End Page Header ======= -->
+  <div class="page-header d-flex align-items-center">
+    <div class="container position-relative">
+      <div class="row d-flex justify-content-center">
+        <div class="col-lg-6 text-center">
+          <h2>Poffer</h2>
+
+
+        </div>
+      </div>
+    </div>
+  </div><!-- End Page Header -->
+
+
+
+
+
+
+
+  <!-- ======= Pricing Section ======= -->
+  <section id="pricing" class="pricing">
+    <div class="container">
+
+      <div class="section-header">
+        <h2>Cart</h2>
+        <p>Check my Join</p>
+      </div>
+
+      <div class="row gy-4 gx-lg-5 justify-content-center">
+
+        <div class="col-lg-10" *ngFor="let project of userJoinedProjects">
+          <div class="pricing-item d-flex justify-content-between align-items-center">
+            <img height="100px" width="100px" [src]="project.projectImages[0].url" class="img-fluid rounded" alt="">
+            <h3>{{project.title}}</h3>
+            
+              <p class="m-1">Discounted Price : {{project.oPrice}} dt </p>
+              <a (click)="leaveProject(project.id)" class="m-1"><i class="bi bi-trash3"></i></a>
+           
+          </div>
+        </div><!-- End Pricing Item -->
+
+
+
+
+        <!-- <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a> -->
+
+        <!-- <div id="preloader">
+    <div class="line"></div>
+  </div> -->
+      </div>
+    </div>
+  </section>
+</main>

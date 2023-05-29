@@ -1,0 +1,146 @@
+<!-- ======= Header ======= -->
+<header id="header" class="header d-flex align-items-center fixed-top">
+  <div class="container-fluid d-flex align-items-center justify-content-between">
+
+    <a href="index.html" class="logo d-flex align-items-center  me-auto me-lg-0">
+      <!-- Uncomment the line below if you also wish to use an image logo -->
+      <!-- <img src="assets/img/logo.png" alt=""> -->
+      <img src="assets/img/testimonials/logo.jpg"  class="log" alt="">
+      <h3  style="color: #7F81FC;">Poffer</h3>
+
+    </a>
+
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li><a href="/dashboard">Home</a></li>
+        <li><a href="/cart">Cart</a></li>
+        <li class="dropdown"><a href="#"><span>My Profile</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <ul>
+            <li><a href="profile/:id">My Account</a></li>
+            <li><a href="/">Logout</a></li>
+
+
+          </ul>
+        </li>
+      </ul>
+    </nav><!-- .navbar -->
+
+    <div class="header-social-links">
+      <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+      <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+      <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+      <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+    </div>
+    <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+    <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+  </div>
+</header>
+<!-- End Header -->
+ <!-- ======= End Page Header ======= -->
+
+<main id="main" data-aos="fade" data-aos-delay="1500">
+
+    <div class="page-header d-flex align-items-center">
+      <div class="container position-relative">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-6 text-center">
+            <h2>{{ project.title }}</h2>
+            <!-- <p>{{ project.description }}</p> -->
+
+            
+
+          </div>
+        </div>
+      </div>
+    </div><!-- End Page Header -->
+
+    <!-- ======= Gallery Single Section ======= -->
+    <section id="gallery-single" class="gallery-single">
+      <div class="container">
+
+        <div class="position-relative h-100">
+          <div class="slides-1 portfolio-details-slider swiper">
+            <div class="swiper-wrapper align-items-center" >
+              <!-- <div class="swiper-slide" *ngFor="let image of project.projectImages">
+                <img [src]="image.url" alt="image">
+              </div> -->
+
+              <div class="swiper-slide">
+                <img [src]=" project.projectImages[0].url " alt="">
+              </div>
+              <div class="swiper-slide">
+                <img [src]=" project.projectImages[1].url " alt="">
+              </div>
+              <div class="swiper-slide">
+                <img [src]=" project.projectImages[2].url " alt="">
+              </div>
+              <div class="swiper-slide">
+                <img [src]=" project.projectImages[3].url " alt="">
+              </div>
+              <div class="swiper-slide">
+                <img [src]=" project.projectImages[4].url " alt="">
+              </div>
+              <!-- <div class="swiper-slide">
+                <img [src]=" project.projectImages[5].url "alt="">
+              </div> -->
+
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+
+        </div>
+
+        <div class="row justify-content-between gy-4 mt-4">
+
+          <div class="col-lg-8">
+            <div class="portfolio-description">
+              <h2>{{ project.title }}</h2>
+              <p>{{ project.description }}</p>
+              <!-- <p>
+                Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
+              </p>
+              <p>
+                Amet consequatur qui dolore veniam voluptatem voluptatem sit. Non aspernatur atque natus ut cum nam et. Praesentium error dolores rerum minus sequi quia veritatis eum. Eos et doloribus doloremque nesciunt molestiae laboriosam.
+              </p> -->
+
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  We are extremely confident in the quality and excellence of our service. With a strong dedication to customer satisfaction, we strive to exceed expectations in every interaction.
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <div>
+                  
+                  <h3><span>Posted By: </span>{{project.posted_user?.firstName}} {{project.posted_user?.lastName}}</h3>
+                  
+                </div>
+              </div>
+
+             
+
+            </div>
+          </div>
+
+          <div class="col-lg-3">
+            <div class="portfolio-info">
+              <h3>Offer information</h3>
+              <ul>
+                <li><strong>Category : </strong> <span>{{project.categorie}}</span></li>
+                <!-- <li><strong>Client</strong> <span>ASU Company</span></li> -->
+                <li><strong>Offer expiry date : </strong> <span >{{project.dueDate | date:'dd/MM/yyyy'}}</span></li>
+                <li><a [routerLink]="['/reviews', project.id]"class="btn-visit text-dark align-self-start">Reviews</a></li>
+                
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Gallery Single Section -->
+    
+  </main><!-- End #main -->
+

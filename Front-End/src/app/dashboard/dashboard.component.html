@@ -1,0 +1,198 @@
+<!-- ======= Header ======= -->
+<header id="header" class="header d-flex align-items-center fixed-top">
+  <div class="container-fluid d-flex align-items-center justify-content-between">
+
+    <a href="index.html" class="logo d-flex align-items-center  me-auto me-lg-0">
+      <!-- Uncomment the line below if you also wish to use an image logo -->
+      <!-- <img src="assets/img/logo.png" alt=""> -->
+      <img src="assets/img/testimonials/logo.jpg" class="log" alt="">
+      <h3  style="color: #7F81FC;">Poffer</h3>
+
+    </a>
+
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li><a href="/dashboard">Home</a></li>
+        <li><a href="/projects/new">Create Offer</a></li>
+        <li *ngIf="userloggedIn?.email === 'admin@admin.com'">
+          <a [routerLink]="['/users']">Users List</a>
+        </li>
+        <li *ngIf="userloggedIn?.email !== 'admin@admin.com'">
+          <a [routerLink]="['/cart', userloggedIn?.id]">Cart</a>
+        </li>
+        <li *ngIf="userloggedIn?.email === 'admin@admin.com'">
+          <a [routerLink]="['/projects']">Offers List</a>
+        </li>
+
+        <li class="dropdown" *ngIf="userloggedIn?.email !== 'admin@admin.com'">
+          <a href="#"><span>My Profile</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <ul>
+            <li><a [routerLink]="['/profile', userloggedIn?.id]">My Account</a></li>
+            <li><a href="/">Logout</a></li>
+          </ul>
+        </li>
+        <!-- <li>
+          <form (submit)="onSubmit()">
+            <div class="form-group">
+              <input name="title" class="form-control" [(ngModel)]="title"/>
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+          </form>
+        </li> -->
+
+      </ul>
+    </nav><!-- .navbar -->
+
+    <div class="header-social-links">
+      <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+      <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+      <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+      <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+    </div>
+    <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+    <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+  </div>
+</header>
+
+<!-- ======= End Page Header ======= -->
+
+<main id="main" data-aos="fade" data-aos-delay="1500">
+
+<div class="page-header d-flex align-items-center">
+
+</div><!-- End Page Header -->
+
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="contact">
+  <div class="container">
+
+    <div class="row gy-4 justify-content-center">
+
+
+
+    </div>
+
+    <div class="row justify-content-center mt-4">
+
+      <div class="col-lg-6">
+
+        <form #registerForm="ngForm" class="php-email-form">
+          
+            <div class="col-md-12 form-group ">
+
+              <input type="text" class="form-control border border-info rounded" #searchkeyword (input)="searchByKeyword(searchkeyword.value)" name="searchKey" id="searchKey" placeholder="Search.." required>
+            </div>
+
+
+
+           
+          
+        </form>
+      </div><!-- End Contact Form -->
+
+
+    </div>
+
+  </div>
+</section><!-- End Contact Section -->
+
+
+  <main id="main" data-aos="fade-up" data-aos-delay="1500">
+
+    <!-- ======= Gallery Section ======= -->
+    <section id="gallery" class="gallery">
+      <div class="container-fluid">
+
+
+        <!-- {{project.projectImages[0].url}} -->
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="150">
+
+          <div  class="col-lg-4 col-md-6 tem filter-app rounded" *ngFor="let project of productDetails">
+            <!-- <div *ngIf="!userloggedIn || project.joinedUsers.includes(userloggedIn)"> -->
+              <img   [src]="project.projectImages[0].url" class="img-fluid" alt=""
+                (click)="showProductDetails(project.id)">
+              <div class="info">
+                <div class="row">
+                <h4 class="col-7">{{ project.title }}</h4>
+                
+                <h4 class="text-info col-5">{{ project.oPrice }}Dt <span class="sp text-danger"> {{ project.iPrice }}DT</span></h4>
+              </div>
+                
+                <h6> Left Places :<span>{{ project.cOffer - project.joinedUsers.length }}</span></h6>
+                <h6>Reserved Places :<span> {{ project.joinedUsers.length}}</span></h6>
+                <h6> Offer expiry date : <span>{{ project.dueDate | date:'dd/MM/yyyy'}}</span></h6>
+               <a class="details-link" title="Join" (click)="JoinProject(project.id)">Join<i
+                    class="bi bi-link-45deg"></i></a>
+
+
+               </div>
+            <!-- </div> -->
+          </div>
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- <div class="row gy-4 justify-content-center  ">
+          <div class="col-xl-4 col-lg-4 col-md-6  portfolio-info">
+            <div class="gallery-item h-100">
+              <img src="assets/img/gallery/gallery-1.jpg" class="img-fluid" alt="">
+              <div class="gallery-links d-flex align-items-center info justify-content-center">
+                <h4>App 1</h4>
+              
+                <a href="assets/img/gallery/gallery-1.jpg" title="Gallery 1" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
+                <a href="gallery-single.html" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-6">
+            <div class="gallery-item h-100">
+              <img src="assets/img/gallery/gallery-2.jpg" class="img-fluid" alt="">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/gallery/gallery-2.jpg" title="Gallery 2" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
+                <a href="gallery-single.html" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>End Gallery Item -->
+        <!-- <div class="col-xl-4 col-lg-4 col-md-6">
+            <div class="gallery-item h-100">
+              <img src="assets/img/gallery/gallery-3.jpg" class="img-fluid" alt="">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/gallery/gallery-3.jpg" title="Gallery 3" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
+                <a href="gallery-single.html" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>End Gallery Item -->
+
+        <!-- </div> -->
+
+      </div>
+      
+    </section><!-- End Gallery Section -->
+
+  </main><!-- End #main -->

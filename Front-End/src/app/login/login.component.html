@@ -1,0 +1,132 @@
+
+<div class="wajdi">
+  <!-- ======= Header ======= -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center  me-auto me-lg-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <img src="assets/img/testimonials/logo.jpg"  class="log" alt="">
+        <h3  style="color: #7F81FC;">Poffer</h3>
+        
+      </a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#about">About</a></li>
+   
+          <li><a href="#testimonials" class="active">TESTIMONIALS</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav><!-- .navbar -->
+
+      <div class="header-social-links">
+        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+      </div>
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+    </div>
+  </header><!-- End Header -->
+
+    <main id="main" data-aos="fade" data-aos-delay="1500">
+
+        <!-- ======= End Page Header ======= -->
+        <div class="page-header d-flex align-items-center">
+            <div class="container position-relative">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-6 text-center">
+                        <h2>Poffer</h2>
+
+                    </div>
+                </div>
+            </div>
+        </div><!-- End Page Header -->
+
+        <!-- ======= Contact Section ======= -->
+        <section id="contact" class="contact">
+            <div class="container">
+
+                <div class="row gy-4 justify-content-center">
+
+                    <div class="col-lg-3">
+                        <div class="info-item d-flex">
+                            <i class="bi bi-geo-alt flex-shrink-0"></i>
+                            <div>
+                                <h4>Location:</h4>
+                                <p>Nefel Education,Tunis,Tunisia</p>
+                            </div>
+                        </div>
+                    </div><!-- End Info Item -->
+
+                    <div class="col-lg-3">
+                        <div class="info-item d-flex">
+                            <i class="bi bi-envelope flex-shrink-0"></i>
+                            <div>
+                                <h4>Email:</h4>
+                                <p>info@Poffer.com</p>
+                            </div>
+                        </div>
+                    </div><!-- End Info Item -->
+
+                    <div class="col-lg-3">
+                        <div class="info-item d-flex">
+                            <i class="bi bi-phone flex-shrink-0"></i>
+                            <div>
+                                <h4>Call:</h4>
+                                <p>+ 216 95 548 855</p>
+                            </div>
+                        </div>
+                    </div><!-- End Info Item -->
+
+                </div>
+
+                <div class="row justify-content-center mt-4">
+
+                    <div class="col-lg-9">
+                        <form #loginForm="ngForm" (ngSubmit)="loginUser()" class="php-email-form">
+                            <small class="text-danger">{{message}}</small>
+                            <div class="row">
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <input type="email" class="form-control" name="email" id="email"
+                                        placeholder="Your Email" required [(ngModel)]="user.email" required  #email="ngModel" 
+                                        [class.is-invalid]="email.invalid && email.touched">
+                                        <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is required field</small>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <input type="password" name="password" class="form-control" id="Password"
+                                    [(ngModel)]="user.password" 
+                                    name="password" id="password"
+                                    placeholder="Password" 
+                                    required #password="ngModel" 
+                                    [class.is-invalid]="password.invalid && password.touched">
+                                    <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required field</small>
+                                </div>
+
+                            </div>
+
+                            <div class="my-3">
+                                <div class="loading">Loading</div>
+                                <div class="error-message"></div>
+                                <div class="sent-message">Your message has been sent. Thank you!</div>
+                            </div>
+
+                            <div class="text-center"><button [disabled]="loginForm.form.invalid" class="w-100" type="submit" class="btn btn-primary"
+                                >Login</button></div>
+                        </form>
+                    </div><!-- End Contact Form -->
+
+                    <p class="text-center mt-3"  (click)="gotoregister()">Don't have an account ?<a href="/register">   Register</a> </p>
+
+                </div>
+
+            </div>
+        </section><!-- End Contact Section -->
+
+    </main><!-- End #main -->
+</div>

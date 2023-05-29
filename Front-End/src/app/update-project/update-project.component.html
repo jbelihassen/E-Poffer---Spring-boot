@@ -1,0 +1,124 @@
+<!-- ======= Header ======= -->
+<header id="header" class="header d-flex align-items-center fixed-top">
+  <div class="container-fluid d-flex align-items-center justify-content-between">
+
+    <a href="index.html" class="logo d-flex align-items-center  me-auto me-lg-0">
+      <!-- Uncomment the line below if you also wish to use an image logo -->
+      <!-- <img src="assets/img/logo.png" alt=""> -->
+      <img src="assets/img/testimonials/logo.jpg"  class="log" alt="">
+      <h3  style="color: #7F81FC;">Poffer</h3>
+
+    </a>
+
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li><a href="/dashboard">Home</a></li>
+        <li><a href="/cart">Cart</a></li>
+        <li class="dropdown"><a href="#"><span>My Profile</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <ul>
+            <li><a href="profile/:id">My Account</a></li>
+            <li><a href="/">Logout</a></li>
+            <li><a href="gallery.html">Architecture</a></li>
+
+
+          </ul>
+        </li>
+      </ul>
+    </nav><!-- .navbar -->
+
+    <div class="header-social-links">
+      <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+      <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+      <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+      <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+    </div>
+    <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+    <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+  </div>
+</header>
+<!-- End Header -->
+ <!-- ======= End Page Header ======= -->
+
+  <main id="main" data-aos="fade" data-aos-delay="1500">
+
+<div class="page-header d-flex align-items-center">
+    <div class="container position-relative">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-6 text-center">
+                <h2>Update an offer !</h2>
+            </div>
+        </div>
+    </div>
+</div><!-- End Page Header -->
+
+<section id="contact" class="contact">
+    <div class="container ">
+
+      <div class="row justify-content-center">
+
+
+<div class="rounded" style="background-color: rgb(255, 255, 255);">
+    <div class="row justify-content-center mt-5">
+
+ <div class="col-lg-11">
+
+    <form #projectForm="ngForm" (ngSubmit)="onSubmit()" >
+        
+        <div class="row">
+            <div class="col-md-6 form-group">
+        <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Offer Title</mat-label>
+            <input matInput placeholder="Offer Title" [(ngModel)]="project.title" name="title">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Product Description</mat-label>
+            <input matInput placeholder="Product Description" [(ngModel)]="project.description"
+            name="description">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Initial Price</mat-label>
+            <input matInput placeholder="Initial Price"
+                   [(ngModel)]="project.iPrice"
+                   name="iPrice">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline"class="w-100">
+              <mat-label>Discounted Price</mat-label>
+                <input matInput
+                       placeholder="Discounted Price"
+                       [(ngModel)]="project.oPrice"
+                       name="oPrice">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline"class="w-100">
+              <mat-label>Condition Offre</mat-label>
+                <input matInput
+                       placeholder="Condition Offre"
+                       [(ngModel)]="project.cOffer"
+                       name="cOffer">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Due Date Of Offer</mat-label>
+                <input matInput [matDatepicker]="picker" name="dueDate" [(ngModel)]="project.dueDate"  placeholder="Due Date of Offer">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+
+            </div>
+
+         </div>
+
+         <button type="submit" class="btn btn-info text-light mb-5">Submit</button>
+    </form>
+        </div>
+    </div>
+
+</div>
+      </div>
+
+      </div>
+</section>
